@@ -1,0 +1,162 @@
+/* para evitar problemas no css, alguns estilos serão "resetados"*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh; /* a primeira altura (a altura principal) dele sempre será essa, ele poderá ficar maior, caso haja vários contêiners maiores dentro dele */
+    background-color: rgb(243, 243, 243);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* pega o conteúdo e coloca todo no centro*/ 
+}
+
+/* Quando coloca "display: flex" em um elemento html, ele vira o flex-conteiner. O flex-conteiner é um conteiner onde todos os itens que estiverem dentro dele ficrão em linha, ocupando o maior espaço dentro dessa linha, podendo ultrapassar a borda, ou seja, colocará todos os elementos em linha, ocupando todo o espaço que necessita dentro do conteiner*/
+
+.instagram-wrapper{
+    display: flex;
+    align-items: center; /*alinhamento vertical*/
+    justify-content: start; /*alinhamento horizontal. O start faz com que comece da esquerda para direita*/
+    width: 60%; /* o tamnho do conteiner do instagram será 60% do body*/
+    height: 100vh; 
+}
+
+.instagram-phone { /*diminui o tamanho da div da foto do celular*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.instagram-phone img {/*diminui o tamanho da foto do celular*/
+    height: 50rem;
+}
+
+.instagram-continue {
+    display: flex;
+    align-items: center; 
+    justify-content: space-around; /* Foi usado o space-round por causa de uma propriedade chamada flex direction.  */
+    flex-direction: column; /*O flex direction pode ser "setado" como column, column reverse, row e row reverse. Antes, o eixo estava como linha e agora nós mudamos para coluna. Ao fazer isso, o align-items: passou ser horizontal e o justify-content: passou ser vertical*/
+    width: 50%;
+    min-height: 34rem;
+}
+
+.group {
+    display: flex;
+    justify-content: space-between; /*o space-between faz com que todo o espaço será entre os elementos do conteiner, não havendo espaço nas laterais*/
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 1.3rem 0; /* em cima e em baixo terá 1.3rem e nos lados terá 0*/
+    border: 1px solid lightgray;
+}
+
+.group:nth-child(1) { /*o nth-child pega os filhos dos elementos. O 1 indica que é o primeiro filho*/
+    min-height: 19rem;
+}
+
+.instagram-logo {
+    height: 3rem;
+}
+
+.profile-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden; /*overflow significa ultrapassar. Em border-radius, foi criada uma borda redonda e tudo aquilo que ultrapassar essa borda, ficará escondido*/
+}
+
+.profile-photo img {
+    height: 6rem;
+}
+
+.instagram-login { /*botão de login*/
+    background-color: #0095f6;
+    color: #ffffff; /*cor da letra*/
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.instagram-logout {
+    color: #0095f6;
+    margin-top: 1rem;
+}
+
+.not-account {
+    color: rgb(160, 160, 160);
+}
+
+.link-blue {
+    color: #0095f6;
+}
+
+.get-the-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1.3rem 0;
+}
+
+.download {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly; /*faz com que os espaços laterais sejam iguais ao que fica entre objetos*/
+    align-items: center;
+    padding: 1rem;
+}
+
+.app-download {
+    height: 3rem;
+    width: 10rem;
+    background-size: cover;
+}
+
+.app-download:nth-child(1) {
+    background-image: url('./img/apple-button.png');
+}
+
+.app-download:nth-child(2) {
+    background-image: url('./img/googleplay-button.png');
+}
+
+/* media queries */
+/* as media queries servem para deixar o design responsivo*/
+
+@media (max-width: 1024px) { /* para tela no tamanho de tablet*/
+    .instagram-wrapper {
+        width: 90%;
+    }
+}
+
+@media (max-width: 650px) { /* para tela no tamanho de celular*/
+    body {
+        background-color: #ffffff;
+    }
+
+    .instagram-wrapper {
+        width: 90%;
+    }
+
+    .instagram-phone { /* tira a imagem do celular. Essa imagem não é necessária quando alguém está acessando o site pelo celular*/
+        display: none;
+    }
+
+    .instagram-continue {
+        width: 100%;
+    }
+    
+    .group {
+        border: 1px solid transparent; /*deixa de exibir a borda*/
+    }
+}
